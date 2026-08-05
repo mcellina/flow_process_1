@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="DFD Level 2" id="dfd2">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="ifin" value="ifin" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="390" y="20" width="200" height="75" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p11" value="1.1 Extract Data C&#10;( Confins )" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="235" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="store1" value="Data Store : SLIKDBUUS&#10;( Server MIS )" style="shape=process;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;size=0.05;" vertex="1" parent="1">
+          <mxGeometry x="360" y="248" width="230" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p12" value="1.2 Transform&#10;Data" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="235" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p13" value="1.3 Load Data to Target&#10;( UPDATE ke IFIN )" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="355" width="230" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="p14" value="1.4 Send&#10;Response to ifin" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="100" y="355" width="170" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="1 Sent cif" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=11;exitX=0.2;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ifin" target="p11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="2 Return Data SLIK" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=11;exitX=0.5;exitY=0;entryX=0.8;entryY=1;" edge="1" parent="1" source="p14" target="ifin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e3" value="Raw Data" style="edgeStyle=none;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="p11" target="store1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="baca / update" style="edgeStyle=none;html=1;startArrow=block;endArrow=block;fontSize=11;" edge="1" parent="1" source="store1" target="p12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="Cleaned Data" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="p12" target="p13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="Loaded" style="edgeStyle=none;html=1;endArrow=block;fontSize=11;" edge="1" parent="1" source="p13" target="p14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

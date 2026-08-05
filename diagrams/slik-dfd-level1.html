@@ -1,0 +1,97 @@
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    padding: 3rem 1.5rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.25rem; font-weight: 650; margin: 0 0 0.2rem; }
+  .subtitle { font-size: 0.92rem; opacity: 0.65; margin: 0 0 2rem; }
+  figure { margin: 0; }
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  figcaption {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: currentColor;
+    opacity: 0.72;
+    max-width: 860px;
+  }
+  figcaption b { opacity: 1; font-weight: 600; }
+</style>
+
+<div class="wrap">
+  <h1>Data Flow Diagram — Level 1</h1>
+  <p class="subtitle">Breakdown dari proses SSIS GetDataSlikFromConfins (Level 0) jadi 3 sub-proses</p>
+
+  <figure>
+    <svg viewBox="0 0 1100 480" role="img" aria-label="IFIN mengirim cif ke proses 1.0 Extract Data Customer, yang juga menarik data dari Confins. Hasilnya diteruskan ke proses 2.0 Validasi dan Enrichment, lalu ke proses 3.0 Update ke Target, yang menuliskan update kembali ke IFIN dan Confins.">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <marker id="arrowAccent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="#d97706"/>
+        </marker>
+      </defs>
+
+      <!-- External entities -->
+      <rect x="20" y="60" width="150" height="75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="95" y="104" text-anchor="middle" font-size="15" font-weight="650">IFIN</text>
+
+      <rect x="20" y="345" width="150" height="75" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="95" y="379" text-anchor="middle" font-size="14" font-weight="650">Server S</text>
+      <text x="95" y="396" text-anchor="middle" font-size="10.5" opacity="0.68">(Confins)</text>
+
+      <!-- Process 1.0 -->
+      <circle cx="360" cy="240" r="68" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="360" y="228" text-anchor="middle" font-size="13" font-weight="650">1.0</text>
+      <text x="360" y="246" text-anchor="middle" font-size="11.5">Extract Data</text>
+      <text x="360" y="262" text-anchor="middle" font-size="11.5">Customer</text>
+
+      <!-- Process 2.0 -->
+      <circle cx="640" cy="240" r="68" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="640" y="228" text-anchor="middle" font-size="13" font-weight="650">2.0</text>
+      <text x="640" y="246" text-anchor="middle" font-size="11.5">Validasi &amp;</text>
+      <text x="640" y="262" text-anchor="middle" font-size="11.5">Enrichment</text>
+
+      <!-- Process 3.0 -->
+      <circle cx="920" cy="240" r="68" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="920" y="228" text-anchor="middle" font-size="13" font-weight="650">3.0</text>
+      <text x="920" y="246" text-anchor="middle" font-size="11.5">Update ke</text>
+      <text x="920" y="262" text-anchor="middle" font-size="11.5">Target</text>
+
+      <!-- Flow 1: IFIN -> 1.0 -->
+      <polyline points="95,135 95,180 292,180" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+      <text x="190" y="170" text-anchor="middle" font-size="11">1  Sent cif</text>
+
+      <!-- Flow 2: Confins -> 1.0 -->
+      <polyline points="95,345 95,300 292,300" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+      <text x="190" y="292" text-anchor="middle" font-size="11">2  Data customer (extract)</text>
+
+      <!-- Flow 3: 1.0 -> 2.0 -->
+      <line x1="428" y1="240" x2="572" y2="240" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+      <text x="500" y="228" text-anchor="middle" font-size="11">3  data mentah customer</text>
+
+      <!-- Flow 4: 2.0 -> 3.0 -->
+      <line x1="708" y1="240" x2="852" y2="240" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+      <text x="780" y="228" text-anchor="middle" font-size="11">4  data tervalidasi</text>
+
+      <!-- Flow 5: 3.0 -> IFIN (UPDATE, constrained) -->
+      <polyline points="920,172 920,60 172,90" fill="none" stroke="#d97706" stroke-width="2.2" marker-end="url(#arrowAccent)"/>
+      <text x="546" y="55" text-anchor="middle" font-size="11" font-weight="650" fill="#d97706">5  Return Data SLIK (update d01/d02_staging)</text>
+
+      <!-- Flow 6: 3.0 -> Confins (UPDATE, constrained) -->
+      <polyline points="920,308 920,430 172,395" fill="none" stroke="#d97706" stroke-width="2.2" marker-end="url(#arrowAccent)"/>
+      <text x="546" y="447" text-anchor="middle" font-size="11" font-weight="650" fill="#d97706">6  Update data enrichment (1 tabel)</text>
+    </svg>
+
+    <figcaption>
+      Proses tunggal di Level 0 dipecah jadi 3: <b>1.0</b> menarik data dari Confins berdasarkan `cif` yang dikirim IFIN, <b>2.0</b> memvalidasi &amp; meng-enrich datanya, <b>3.0</b> menuliskan hasil akhir balik ke IFIN dan Confins. Jalur oranye (5, 6) adalah operasi <b>UPDATE</b> — satu-satunya jenis tulis yang diizinkan ke dua sistem tersebut.
+    </figcaption>
+  </figure>
+</div>

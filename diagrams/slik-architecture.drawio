@@ -1,0 +1,36 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="Architecture" id="arch1">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="serverS" value="Server S&#10;Confins (Source)&#10;&#10;cust&#10;~1,000,000 rows&#10;&#10;READ (extract)&#10;+ UPDATE (1 tabel)" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="30" y="90" width="270" height="210" as="geometry" />
+        </mxCell>
+
+        <mxCell id="serverMIS" value="Server MIS UUS SLIK&#10;SSIS: GetDataSlikFromConfins&#10;&#10;extract → validate → enrich&#10;customer sesuai cif/ukey di&#10;d01_staging / d02_staging&#10;&#10;CREATE + READ + WRITE&#10;validasi &amp; simpan histori staging" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="365" y="70" width="270" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ifin" value="IFIN&#10;SLIK Staging (Target)&#10;&#10;d01_staging&#10;d02_staging&#10;&#10;UPDATE-ONLY&#10;(no CREATE TABLE)" style="rounded=1;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="710" y="90" width="260" height="210" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" value="extract cust data" style="edgeStyle=none;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="serverS" target="serverMIS">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="330" y="160" as="sourcePoint" /><mxPoint x="365" y="160" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="update hasil enrichment" style="edgeStyle=none;html=1;endArrow=block;fontSize=10;strokeColor=#D97706;fontColor=#D97706;" edge="1" parent="1" source="serverMIS" target="serverS">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="365" y="230" as="sourcePoint" /><mxPoint x="330" y="230" as="targetPoint" /></mxGeometry>
+        </mxCell>
+
+        <mxCell id="e3" value="call SSIS + referensi cif/ukey" style="edgeStyle=none;html=1;endArrow=block;fontSize=10;" edge="1" parent="1" source="ifin" target="serverMIS">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="710" y="150" as="sourcePoint" /><mxPoint x="635" y="150" as="targetPoint" /></mxGeometry>
+        </mxCell>
+        <mxCell id="e4" value="update d01/d02_staging" style="edgeStyle=none;html=1;endArrow=block;fontSize=10;strokeColor=#D97706;fontColor=#D97706;" edge="1" parent="1" source="serverMIS" target="ifin">
+          <mxGeometry relative="1" as="geometry"><mxPoint x="635" y="240" as="sourcePoint" /><mxPoint x="710" y="240" as="targetPoint" /></mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

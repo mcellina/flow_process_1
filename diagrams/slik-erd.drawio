@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="ERD" id="erd1">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="cust" value="CUST&#10;(Server S — Confins)&#10;&#10;PK  cust_id&#10;cust_no (cif)&#10;cust_type, spouse_id&#10;... lihat Data Dictionary" style="rounded=0;dashed=1;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="260" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d01s" value="D01_STAGING&#10;(IFIN, di-generate)&#10;&#10;PK  ukey&#10;cif, nik, id&#10;(kolom lain kosong,&#10;diisi lewat proses ini)" style="rounded=0;dashed=1;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="390" y="40" width="260" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="d02s" value="D02_STAGING&#10;(IFIN, di-generate)&#10;&#10;PK  ukey&#10;cif, nik, id&#10;(kolom lain kosong,&#10;diisi lewat proses ini)" style="rounded=0;dashed=1;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="720" y="40" width="260" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="stgd01" value="STG_STAGING_D01&#10;(Server MIS UUS SLIK)&#10;&#10;PK  cif&#10;ukey&#10;src_* (kolom mentah dari Confins)&#10;nama, nik, alamat, ... (final)&#10;*_ojk_code (hasil mapping)&#10;~40 kolom, lihat Data Dictionary" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="390" y="240" width="260" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="stgd02" value="STG_STAGING_D02&#10;(Server MIS UUS SLIK)&#10;&#10;PK  cif&#10;ukey&#10;src_* (kolom mentah dari Confins)&#10;nik, nama, alamat, ... (final)&#10;nama_pasangan, nik_pasangan&#10;~40 kolom, lihat Data Dictionary" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="720" y="240" width="260" height="200" as="geometry" />
+        </mxCell>
+
+        <mxCell id="runlog" value="ETL_RUN_LOG&#10;&#10;PK  run_id&#10;package_name, status&#10;start_time, end_time&#10;rows_d01, rows_d02" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="520" y="490" width="260" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hist01" value="ETL_D01_HISTORY&#10;&#10;PK  history_id&#10;FK  run_id&#10;cif, kolom_old, kolom_new&#10;updated_at" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="710" width="240" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hist02" value="ETL_D02_HISTORY&#10;&#10;PK  history_id&#10;FK  run_id&#10;cif, kolom_old, kolom_new&#10;updated_at" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="420" y="710" width="240" height="130" as="geometry" />
+        </mxCell>
+
+        <mxCell id="proclog" value="SLIK_SSIS_PROCESS_LOG&#10;&#10;PK  log_id&#10;FK  run_id&#10;task_name, status&#10;error_code, error_message" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=top;spacingTop=8;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="700" y="710" width="260" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- logical (dashed) relations -->
+        <mxCell id="r1" value="cif (logical)" style="edgeStyle=none;html=1;dashed=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="cust" target="stgd01"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="cif (logical)" style="edgeStyle=none;html=1;dashed=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="cust" target="stgd02"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="ukey, cif" style="edgeStyle=none;html=1;dashed=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="d01s" target="stgd01"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r4" value="ukey, cif" style="edgeStyle=none;html=1;dashed=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="d02s" target="stgd02"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <!-- real FK relations -->
+        <mxCell id="r5" value="1        N" style="edgeStyle=none;html=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="runlog" target="hist01"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r6" value="1    N" style="edgeStyle=none;html=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="runlog" target="hist02"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r7" value="1        N" style="edgeStyle=none;html=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="runlog" target="proclog"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
