@@ -100,7 +100,7 @@
         <mxCell id="hist_r3t" parent="d01hist" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="DATETIME" vertex="1">
           <mxGeometry height="26" width="108" x="184" y="105" as="geometry" />
         </mxCell>
-        <mxCell id="nofk" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=9.5;fontStyle=2;fontColor=#999999;" value="nggak ada FK&#xa;(staging di-truncate)" vertex="1">
+        <mxCell id="nofk" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=9.5;fontStyle=2;fontColor=#999999;" value="&lt;br&gt;(staging di-truncate)" vertex="1">
           <mxGeometry height="30" width="118" x="440" y="85" as="geometry" />
         </mxCell>
         <mxCell id="nofk_line" edge="1" parent="1" source="d01staging" style="edgeStyle=none;html=1;endArrow=none;dashed=1;strokeColor=#999999;" target="d01hist">
