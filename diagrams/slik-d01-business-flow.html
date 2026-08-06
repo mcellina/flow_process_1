@@ -19,7 +19,7 @@
 </head>
 <body>
   <figure>
-    <svg viewBox="0 0 1120 786" role="img" aria-label="Flow proses pembentukan dan pengiriman Form D01: kotak flow ringkas di kolom kiri (Ambil CIF/NIK, Extract dan Filter Data, Simpan ke D01_staging, Validasi D01_staging, Load Data, lalu bercabang jadi Insert/Update D01 dan Insert ke History, menunggu keduanya, baru Update Status), dengan keterangan lengkap di kolom kanan.">
+    <svg viewBox="0 0 1120 786" role="img" aria-label="Flow proses pembentukan dan pengiriman Form D01, format tabel dengan kotak flow ringkas di kolom kiri dan keterangan bernomor di kolom kanan, dipisahkan garis horizontal per baris.">
       <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
@@ -33,6 +33,16 @@
       <rect x="2" y="2" width="1116" height="48" fill="none" stroke="currentColor" stroke-width="1.4"/>
       <text x="560" y="31" text-anchor="middle" font-size="14.5" font-weight="700">Flow Process — Pembentukan &amp; Pengiriman Form D01</text>
 
+      <!-- Row dividers (table grid) -->
+      <line x1="2" y1="129" x2="1118" y2="129" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="205" x2="1118" y2="205" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="277" x2="1118" y2="277" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="349" x2="1118" y2="349" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="421" x2="1118" y2="421" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="493" x2="1118" y2="493" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="607" x2="1118" y2="607" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+      <line x1="2" y1="685" x2="1118" y2="685" stroke="currentColor" stroke-width="1" opacity="0.35"/>
+
       <!-- Column divider -->
       <line x1="400" y1="50" x2="400" y2="784" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.5"/>
 
@@ -43,33 +53,33 @@
       <rect x="40" y="144" width="4" height="50" rx="2" fill="#2563eb"/>
       <text x="56" y="162" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#2563eb">IFIN</text>
       <text x="56" y="181" font-size="12" font-weight="650">1. Ambil CIF / NIK</text>
-      <text x="420" y="158" font-size="11" opacity="0.85">Ambil CIF / NIK dari <tspan font-weight="700">iFin</tspan> sebagai acuan pembentukan Form D01.</text>
+      <text x="420" y="158" font-size="11" opacity="0.85"><tspan font-weight="700">1.</tspan> Ambil CIF / NIK dari <tspan font-weight="700">iFin</tspan> sebagai acuan pembentukan Form D01.</text>
       <line x1="210.0" y1="194" x2="210.0" y2="214" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
       <rect x="40" y="216" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
       <rect x="40" y="216" width="4" height="50" rx="2" fill="#059669"/>
       <text x="56" y="234" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS • CONFINS</text>
       <text x="56" y="253" font-size="12" font-weight="650">2. Extract &amp; Filter Data</text>
-      <text x="420" y="230" font-size="11" opacity="0.85">Ambil detail debitur (nama, alamat, dll) dari <tspan font-weight="700">Confins</tspan></text>
+      <text x="420" y="230" font-size="11" opacity="0.85"><tspan font-weight="700">2.</tspan> Ambil detail debitur (nama, alamat, dll) dari <tspan font-weight="700">Confins</tspan></text>
       <text x="420" y="247" font-size="11" opacity="0.85">menggunakan CIF dari langkah 1.</text>
       <line x1="210.0" y1="266" x2="210.0" y2="286" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
       <rect x="40" y="288" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
       <rect x="40" y="288" width="4" height="50" rx="2" fill="#059669"/>
       <text x="56" y="306" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS</text>
       <text x="56" y="325" font-size="12" font-weight="650">3. Simpan ke D01_staging</text>
-      <text x="420" y="302" font-size="11" opacity="0.85">Simpan data detail debitur ke database <tspan font-weight="700">MIS</tspan>,</text>
+      <text x="420" y="302" font-size="11" opacity="0.85"><tspan font-weight="700">3.</tspan> Simpan data detail debitur ke database <tspan font-weight="700">MIS</tspan>,</text>
       <text x="420" y="319" font-size="11" opacity="0.85">tabel <tspan font-family="monospace">D01_staging</tspan>.</text>
       <line x1="210.0" y1="338" x2="210.0" y2="358" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
       <rect x="40" y="360" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
       <rect x="40" y="360" width="4" height="50" rx="2" fill="#059669"/>
       <text x="56" y="378" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS</text>
       <text x="56" y="397" font-size="12" font-weight="650">4. Validasi D01_staging</text>
-      <text x="420" y="374" font-size="11" opacity="0.85">Validasi tabel <tspan font-family="monospace">D01_staging</tspan> menggunakan function.</text>
+      <text x="420" y="374" font-size="11" opacity="0.85"><tspan font-weight="700">4.</tspan> Validasi tabel <tspan font-family="monospace">D01_staging</tspan> menggunakan function.</text>
       <line x1="210.0" y1="410" x2="210.0" y2="430" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
       <rect x="40" y="432" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
       <rect x="40" y="432" width="4" height="50" rx="2" fill="#d97706"/>
       <text x="56" y="450" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#d97706">MIS → IFIN</text>
       <text x="56" y="469" font-size="12" font-weight="650">5. Load Data</text>
-      <text x="420" y="446" font-size="11" opacity="0.85">Kirim data yang sudah bersih dari <tspan font-weight="700">MIS</tspan> (Staging)</text>
+      <text x="420" y="446" font-size="11" opacity="0.85"><tspan font-weight="700">5.</tspan> Kirim data yang sudah bersih dari <tspan font-weight="700">MIS</tspan> (Staging)</text>
       <text x="420" y="463" font-size="11" opacity="0.85">ke <tspan font-weight="700">iFin</tspan>.</text>
       <line x1="210.0" y1="482" x2="210.0" y2="504" stroke="currentColor" stroke-width="1.3"/>
       <line x1="121.0" y1="504" x2="299.0" y2="504" stroke="currentColor" stroke-width="1.3"/>
@@ -84,9 +94,9 @@
       <rect x="218.0" y="522" width="4" height="50" rx="2" fill="#059669"/>
       <text x="234.0" y="540" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS</text>
       <text x="234.0" y="559" font-size="12" font-weight="650">6b. Insert ke History</text>
-      <text x="420" y="536" font-size="11" opacity="0.85"><tspan font-weight="700">6a</tspan> — Insert / update ke tabel D01 pada server</text>
+      <text x="420" y="536" font-size="11" opacity="0.85"><tspan font-weight="700">6a.</tspan> Insert / update ke tabel D01 pada server</text>
       <text x="420" y="553" font-size="11" opacity="0.85">database <tspan font-weight="700">iFin</tspan>.</text>
-      <text x="420" y="570" font-size="11" opacity="0.85"><tspan font-weight="700">6b</tspan> — Insert data D01_staging ke tabel</text>
+      <text x="420" y="570" font-size="11" opacity="0.85"><tspan font-weight="700">6b.</tspan> Insert data D01_staging ke tabel</text>
       <text x="420" y="587" font-size="11" opacity="0.85"><tspan font-family="monospace">D01_History</tspan> (MIS).</text>
       <line x1="121.0" y1="572" x2="121.0" y2="594" stroke="currentColor" stroke-width="1.3"/>
       <line x1="299.0" y1="572" x2="299.0" y2="594" stroke="currentColor" stroke-width="1.3"/>
@@ -97,7 +107,7 @@
       <rect x="40" y="622" width="4" height="50" rx="2" fill="#2563eb"/>
       <text x="56" y="640" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#2563eb">IFIN</text>
       <text x="56" y="659" font-size="12" font-weight="650">7. Update Status</text>
-      <text x="420" y="636" font-size="11" opacity="0.85">Update <tspan font-family="monospace">flag = 0</tspan> pada tabel log di <tspan font-weight="700">iFin</tspan>.</text>
+      <text x="420" y="636" font-size="11" opacity="0.85"><tspan font-weight="700">7.</tspan> Update <tspan font-family="monospace">flag = 0</tspan> pada tabel log di <tspan font-weight="700">iFin</tspan>.</text>
       <line x1="210.0" y1="672" x2="210.0" y2="698" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
       <rect x="135.0" y="700" width="150" height="38" rx="19" fill="none" stroke="currentColor" stroke-width="1.5"/>
       <text x="210.0" y="724" text-anchor="middle" font-size="11.5" font-weight="650">END</text>
