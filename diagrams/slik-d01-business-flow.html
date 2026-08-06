@@ -25,7 +25,7 @@
 </head>
 <body>
   <figure>
-    <svg viewBox="0 0 1000 1230" role="img" aria-label="Alur proses bisnis pembentukan dan pengiriman Form D01: dari pengambilan CIF/NIK di iFin, pembentukan data dari Confins, penyimpanan dan validasi di staging MIS, pengiriman data ke iFin yang lalu bercabang jadi dua tujuan paralel — insert/update tabel D01 dan update status di iFin, serta insert ke tabel history di MIS — sebelum berakhir.">
+    <svg viewBox="0 0 1000 1230" role="img" aria-label="Alur proses bisnis pembentukan dan pengiriman Form D01: dari pengambilan CIF/NIK di iFin, pembentukan data dari Confins, penyimpanan dan validasi di staging MIS, pengiriman data ke iFin yang bercabang jadi dua tujuan paralel — insert/update tabel D01 di iFin dan insert ke history di MIS — lalu menunggu keduanya selesai sebelum update status di iFin.">
       <defs>
         <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
@@ -105,16 +105,6 @@
       <text x="154" y="749" font-size="9" font-weight="650" letter-spacing="0.4" fill="#2563eb">IFIN</text>
       <text x="154" y="766" font-size="12" font-weight="650">Insert / Update Tabel D01</text>
       <text x="154" y="783" font-size="9.5" opacity="0.75">Insert / update ke tabel D01 pada server database iFin</text>
-      <line x1="290.0" y1="802" x2="290.0" y2="830" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-
-      <!-- Step 7a -->
-      <rect x="100" y="832" width="380" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="100" y="832" width="5" height="72" rx="2.5" fill="#2563eb"/>
-      <circle cx="130" cy="868.0" r="13" fill="none" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="130" y="872.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2563eb">7a</text>
-      <text x="154" y="851" font-size="9" font-weight="650" letter-spacing="0.4" fill="#2563eb">IFIN</text>
-      <text x="154" y="868" font-size="12" font-weight="650">Update Status</text>
-      <text x="154" y="885" font-size="9.5" opacity="0.75">Update flag = 0 pada table log di iFin</text>
 
       <!-- Step 6b -->
       <rect x="520" y="730" width="380" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
@@ -126,10 +116,20 @@
       <text x="574" y="783" font-size="9.5" opacity="0.75">Insert data D01_staging ke tabel D01_History (MIS)</text>
 
       <!-- Converge -->
-      <line x1="290.0" y1="904" x2="290.0" y2="934" stroke="currentColor" stroke-width="1.4"/>
-      <line x1="710.0" y1="802" x2="710.0" y2="934" stroke="currentColor" stroke-width="1.4"/>
-      <line x1="290.0" y1="934" x2="710.0" y2="934" stroke="currentColor" stroke-width="1.4"/>
-      <text x="500" y="928" text-anchor="middle" font-size="10.5" opacity="0.7">tunggu kedua cabang selesai</text>
+      <line x1="290.0" y1="802" x2="290.0" y2="832" stroke="currentColor" stroke-width="1.4"/>
+      <line x1="710.0" y1="802" x2="710.0" y2="832" stroke="currentColor" stroke-width="1.4"/>
+      <line x1="290.0" y1="832" x2="710.0" y2="832" stroke="currentColor" stroke-width="1.4"/>
+      <text x="500" y="826" text-anchor="middle" font-size="10.5" opacity="0.7">tunggu kedua cabang selesai</text>
+      <line x1="500" y1="832" x2="500" y2="860" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+      <!-- Step 7 -->
+      <rect x="240" y="862" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="240" y="862" width="5" height="72" rx="2.5" fill="#2563eb"/>
+      <circle cx="274" cy="898.0" r="14" fill="none" stroke="#2563eb" stroke-width="1.5"/>
+      <text x="274" y="902.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2563eb">7</text>
+      <text x="302" y="881" font-size="9" font-weight="650" letter-spacing="0.4" fill="#2563eb">IFIN</text>
+      <text x="302" y="898" font-size="12.5" font-weight="650">Update Status</text>
+      <text x="302" y="915" font-size="10" opacity="0.75">Update flag = 0 pada table log di iFin</text>
       <line x1="500" y1="934" x2="500" y2="962" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
 
       <!-- End -->
@@ -146,7 +146,7 @@
     </svg>
 
     <figcaption>
-      Alur bisnis pembentukan Form D01 dari sisi non-teknis (di luar detail komponen SSIS): <b>iFin</b> memberi CIF/NIK sebagai pemicu, <b>MIS</b> membentuk &amp; memvalidasi data (mengambil detail debitur dari <b>Confins</b>) di tabel <code>D01_staging</code>, lalu dikirim ke <b>iFin</b> pada langkah <b>5. Load Data</b>. Pengiriman ini punya <b>dua tujuan sekaligus</b> (mirip pola Multicast pada diagram SSIS teknis) — bukan dua langkah berurutan: <b>iFin</b> meng-insert/update tabel <code>D01</code> lalu meng-update status, sementara <b>MIS</b> secara paralel meng-insert salinan ke <code>D01_History</code> untuk jejak audit. Alur berakhir setelah kedua cabang selesai.
+      Alur bisnis pembentukan Form D01 dari sisi non-teknis (di luar detail komponen SSIS): <b>iFin</b> memberi CIF/NIK sebagai pemicu, <b>MIS</b> membentuk &amp; memvalidasi data (mengambil detail debitur dari <b>Confins</b>) di tabel <code>D01_staging</code>, lalu dikirim ke <b>iFin</b> pada langkah <b>5. Load Data</b>. Pengiriman ini punya <b>dua tujuan sekaligus</b> (mirip pola Multicast pada diagram SSIS teknis) — <b>iFin</b> meng-insert/update tabel <code>D01</code> sementara <b>MIS</b> secara paralel meng-insert salinan ke <code>D01_History</code>. Baru setelah <b>kedua cabang selesai</b>, status di-update di iFin (langkah 7) — bukan bagian dari cabang paralel.
     </figcaption>
   </figure>
 </body>
