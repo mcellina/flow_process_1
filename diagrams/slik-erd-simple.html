@@ -1,0 +1,156 @@
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    padding: 3rem 1.5rem;
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 1050px; margin: 0 auto; }
+  h1 { font-size: 1.25rem; font-weight: 650; margin: 0 0 0.2rem; }
+  .subtitle { font-size: 0.92rem; opacity: 0.65; margin: 0 0 2rem; }
+  figure { margin: 0; }
+  svg { width: 100%; height: auto; display: block; overflow: visible; }
+  figcaption {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: currentColor;
+    opacity: 0.72;
+    max-width: 900px;
+  }
+  figcaption b { opacity: 1; font-weight: 600; }
+</style>
+
+<div class="wrap">
+  <h1>Entity Relationship Diagram — SLIK Enrichment (Simple)</h1>
+  <p class="subtitle">Hanya tabel milik Server MIS UUS SLIK, dengan tipe data — tanpa tabel eksternal</p>
+
+  <figure>
+    <svg viewBox="0 0 1050 780" role="img" aria-label="STAGING_D01 dan STAGING_D02 adalah tabel staging milik Server MIS UUS SLIK, lengkap dengan tipe data tiap kolom. ETL_RUN_LOG punya relasi satu ke banyak dengan ETL_D01_HISTORY, ETL_D02_HISTORY, dan SLIK_SSIS_PROCESS_LOG lewat kolom run_id.">
+      <!-- STAGING_D01 -->
+      <rect x="60" y="40" width="290" height="250" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="205" y="63" text-anchor="middle" font-size="13" font-weight="650">STAGING_D01</text>
+      <text x="205" y="79" text-anchor="middle" font-size="10" opacity="0.65">(Server MIS UUS SLIK)</text>
+      <line x1="75" y1="87" x2="335" y2="87" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <text x="80" y="105" font-size="11" font-weight="650">PK  cif</text>
+      <text x="330" y="105" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(40)</text>
+      <text x="80" y="123" font-size="11">ukey</text>
+      <text x="330" y="123" text-anchor="end" font-size="10.5" opacity="0.7">BIGINT</text>
+      <text x="80" y="141" font-size="11">src_* (kolom mentah)</text>
+      <text x="330" y="141" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR</text>
+      <text x="80" y="159" font-size="11">nama / alamat</text>
+      <text x="330" y="159" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(300/600)</text>
+      <text x="80" y="177" font-size="11">nik / npwp</text>
+      <text x="330" y="177" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(50)</text>
+      <text x="80" y="195" font-size="11">tanggal_lahir</text>
+      <text x="330" y="195" text-anchor="end" font-size="10.5" opacity="0.7">DATETIME2(7)</text>
+      <text x="80" y="213" font-size="11">*_ojk_code</text>
+      <text x="330" y="213" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(50)</text>
+      <text x="80" y="231" font-size="11">penghasilan_kotor_per_tahun</text>
+      <text x="330" y="231" text-anchor="end" font-size="10.5" opacity="0.7">DECIMAL(18,2)</text>
+      <text x="80" y="255" font-size="10.5" opacity="0.6">~40 kolom, lihat Data Dictionary</text>
+
+      <!-- STAGING_D02 -->
+      <rect x="400" y="40" width="290" height="250" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="545" y="63" text-anchor="middle" font-size="13" font-weight="650">STAGING_D02</text>
+      <text x="545" y="79" text-anchor="middle" font-size="10" opacity="0.65">(Server MIS UUS SLIK)</text>
+      <line x1="415" y1="87" x2="675" y2="87" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <text x="420" y="105" font-size="11" font-weight="650">PK  cif</text>
+      <text x="670" y="105" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(40)</text>
+      <text x="420" y="123" font-size="11">ukey</text>
+      <text x="670" y="123" text-anchor="end" font-size="10.5" opacity="0.7">BIGINT</text>
+      <text x="420" y="141" font-size="11">src_* (kolom mentah)</text>
+      <text x="670" y="141" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR</text>
+      <text x="420" y="159" font-size="11">nik / nama</text>
+      <text x="670" y="159" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(50/300)</text>
+      <text x="420" y="177" font-size="11">nama_pasangan</text>
+      <text x="670" y="177" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(300)</text>
+      <text x="420" y="195" font-size="11">tanggal_lahir_pasangan</text>
+      <text x="670" y="195" text-anchor="end" font-size="10.5" opacity="0.7">DATETIME2(7)</text>
+      <text x="420" y="213" font-size="11">*_ojk_code</text>
+      <text x="670" y="213" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(50)</text>
+      <text x="420" y="231" font-size="11">jumlah_tanggungan</text>
+      <text x="670" y="231" text-anchor="end" font-size="10.5" opacity="0.7">INT</text>
+      <text x="420" y="255" font-size="10.5" opacity="0.6">~40 kolom, lihat Data Dictionary</text>
+
+      <!-- ETL_RUN_LOG -->
+      <rect x="235" y="340" width="290" height="150" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="380" y="363" text-anchor="middle" font-size="13" font-weight="650">ETL_RUN_LOG</text>
+      <line x1="250" y1="371" x2="510" y2="371" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <text x="255" y="389" font-size="11" font-weight="650">PK  run_id</text>
+      <text x="505" y="389" text-anchor="end" font-size="10.5" opacity="0.7">INT (IDENTITY)</text>
+      <text x="255" y="407" font-size="11">package_name</text>
+      <text x="505" y="407" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(100)</text>
+      <text x="255" y="425" font-size="11">status</text>
+      <text x="505" y="425" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(20)</text>
+      <text x="255" y="443" font-size="11">start_time / end_time</text>
+      <text x="505" y="443" text-anchor="end" font-size="10.5" opacity="0.7">DATETIME2</text>
+      <text x="255" y="461" font-size="11">rows_d01 / rows_d02</text>
+      <text x="505" y="461" text-anchor="end" font-size="10.5" opacity="0.7">INT</text>
+
+      <!-- ETL_D01_HISTORY -->
+      <rect x="20" y="560" width="255" height="170" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="147" y="583" text-anchor="middle" font-size="13" font-weight="650">ETL_D01_HISTORY</text>
+      <line x1="35" y1="591" x2="260" y2="591" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <text x="40" y="609" font-size="11" font-weight="650">PK  history_id</text>
+      <text x="255" y="609" text-anchor="end" font-size="10.5" opacity="0.7">BIGINT (IDENTITY)</text>
+      <text x="40" y="627" font-size="11" font-style="italic">FK  run_id</text>
+      <text x="255" y="627" text-anchor="end" font-size="10.5" opacity="0.7">INT</text>
+      <text x="40" y="645" font-size="11">cif</text>
+      <text x="255" y="645" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(40)</text>
+      <text x="40" y="663" font-size="11">kolom_old / kolom_new</text>
+      <text x="255" y="663" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(MAX)</text>
+      <text x="40" y="681" font-size="11">updated_at</text>
+      <text x="255" y="681" text-anchor="end" font-size="10.5" opacity="0.7">DATETIME2</text>
+
+      <!-- ETL_D02_HISTORY -->
+      <rect x="295" y="560" width="255" height="170" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="422" y="583" text-anchor="middle" font-size="13" font-weight="650">ETL_D02_HISTORY</text>
+      <line x1="310" y1="591" x2="535" y2="591" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <text x="315" y="609" font-size="11" font-weight="650">PK  history_id</text>
+      <text x="530" y="609" text-anchor="end" font-size="10.5" opacity="0.7">BIGINT (IDENTITY)</text>
+      <text x="315" y="627" font-size="11" font-style="italic">FK  run_id</text>
+      <text x="530" y="627" text-anchor="end" font-size="10.5" opacity="0.7">INT</text>
+      <text x="315" y="645" font-size="11">cif</text>
+      <text x="530" y="645" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(40)</text>
+      <text x="315" y="663" font-size="11">kolom_old / kolom_new</text>
+      <text x="530" y="663" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(MAX)</text>
+      <text x="315" y="681" font-size="11">updated_at</text>
+      <text x="530" y="681" text-anchor="end" font-size="10.5" opacity="0.7">DATETIME2</text>
+
+      <!-- SLIK_SSIS_PROCESS_LOG -->
+      <rect x="570" y="560" width="280" height="170" rx="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <text x="710" y="583" text-anchor="middle" font-size="13" font-weight="650">SLIK_SSIS_PROCESS_LOG</text>
+      <line x1="585" y1="591" x2="835" y2="591" stroke="currentColor" stroke-width="1" opacity="0.4"/>
+      <text x="590" y="609" font-size="11" font-weight="650">PK  log_id</text>
+      <text x="830" y="609" text-anchor="end" font-size="10.5" opacity="0.7">BIGINT (IDENTITY)</text>
+      <text x="590" y="627" font-size="11" font-style="italic">FK  run_id</text>
+      <text x="830" y="627" text-anchor="end" font-size="10.5" opacity="0.7">INT</text>
+      <text x="590" y="645" font-size="11">task_name</text>
+      <text x="830" y="645" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(200)</text>
+      <text x="590" y="663" font-size="11">status / error_code</text>
+      <text x="830" y="663" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(20/50)</text>
+      <text x="590" y="681" font-size="11">error_message</text>
+      <text x="830" y="681" text-anchor="end" font-size="10.5" opacity="0.7">VARCHAR(MAX)</text>
+
+      <!-- relations -->
+      <line x1="290" y1="490" x2="147" y2="558" stroke="currentColor" stroke-width="1.4"/>
+      <text x="305" y="485" font-size="10" opacity="0.75">1</text>
+      <text x="162" y="553" font-size="10" opacity="0.75">N</text>
+
+      <line x1="380" y1="490" x2="422" y2="558" stroke="currentColor" stroke-width="1.4"/>
+      <text x="388" y="520" font-size="10" opacity="0.75">1</text>
+      <text x="428" y="553" font-size="10" opacity="0.75">N</text>
+
+      <line x1="460" y1="490" x2="710" y2="558" stroke="currentColor" stroke-width="1.4"/>
+      <text x="445" y="485" font-size="10" opacity="0.75">1</text>
+      <text x="695" y="553" font-size="10" opacity="0.75">N</text>
+    </svg>
+
+    <figcaption>
+      Cuma tabel yang jadi tanggung jawab proyek ini (Server MIS UUS SLIK) — tabel eksternal (<code>cust</code> di Confins, <code>d01_staging</code>/<code>d02_staging</code> di IFIN) tidak dimasukkan, cukup dijelaskan di bagian Data Mapping. Tipe data yang ditampilkan cuma kolom representatif — daftar lengkap ~40 kolom per tabel staging ada di bagian Data Dictionary. Relasi FK asli: <b>ETL_RUN_LOG</b> (1) ke <b>ETL_D01_HISTORY</b>, <b>ETL_D02_HISTORY</b>, dan <b>SLIK_SSIS_PROCESS_LOG</b> (N) lewat <code>run_id</code>.
+    </figcaption>
+  </figure>
+</div>

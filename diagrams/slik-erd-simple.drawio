@@ -1,0 +1,38 @@
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram name="ERD Simple" id="erdsimple1">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1050" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="stgd01" value="STAGING_D01&#10;(Server MIS UUS SLIK)&#10;&#10;PK  cif                       VARCHAR(40)&#10;ukey                       BIGINT&#10;src_* (kolom mentah)      VARCHAR&#10;nama / alamat          VARCHAR(300/600)&#10;nik / npwp                VARCHAR(50)&#10;tanggal_lahir            DATETIME2(7)&#10;*_ojk_code                VARCHAR(50)&#10;penghasilan_kotor_per_tahun  DECIMAL(18,2)&#10;~40 kolom, lihat Data Dictionary" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="60" y="40" width="290" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="stgd02" value="STAGING_D02&#10;(Server MIS UUS SLIK)&#10;&#10;PK  cif                    VARCHAR(40)&#10;ukey                    BIGINT&#10;src_* (kolom mentah)   VARCHAR&#10;nik / nama            VARCHAR(50/300)&#10;nama_pasangan       VARCHAR(300)&#10;tanggal_lahir_pasangan  DATETIME2(7)&#10;*_ojk_code             VARCHAR(50)&#10;jumlah_tanggungan       INT&#10;~40 kolom, lihat Data Dictionary" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="400" y="40" width="290" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="runlog" value="ETL_RUN_LOG&#10;&#10;PK  run_id              INT (IDENTITY)&#10;package_name         VARCHAR(100)&#10;status                VARCHAR(20)&#10;start_time / end_time  DATETIME2&#10;rows_d01 / rows_d02      INT" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="235" y="340" width="290" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hist01" value="ETL_D01_HISTORY&#10;&#10;PK  history_id        BIGINT (IDENTITY)&#10;FK  run_id            INT&#10;cif                   VARCHAR(40)&#10;kolom_old / kolom_new  VARCHAR(MAX)&#10;updated_at            DATETIME2" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="20" y="560" width="255" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="hist02" value="ETL_D02_HISTORY&#10;&#10;PK  history_id        BIGINT (IDENTITY)&#10;FK  run_id            INT&#10;cif                   VARCHAR(40)&#10;kolom_old / kolom_new  VARCHAR(MAX)&#10;updated_at            DATETIME2" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="295" y="560" width="255" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="proclog" value="SLIK_SSIS_PROCESS_LOG&#10;&#10;PK  log_id            BIGINT (IDENTITY)&#10;FK  run_id            INT&#10;task_name             VARCHAR(200)&#10;status / error_code    VARCHAR(20/50)&#10;error_message         VARCHAR(MAX)" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=8;spacingLeft=10;fontSize=11;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="570" y="560" width="280" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="r1" value="1        N" style="edgeStyle=none;html=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="runlog" target="hist01"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r2" value="1    N" style="edgeStyle=none;html=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="runlog" target="hist02"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="r3" value="1        N" style="edgeStyle=none;html=1;endArrow=none;fontSize=10;" edge="1" parent="1" source="runlog" target="proclog"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -60,14 +60,14 @@
       <rect x="115" y="255" width="390" height="88" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
       <text x="130" y="275" font-size="10" opacity="0.6" font-style="italic">[ Data Flow Task ]</text>
       <text x="310" y="296" text-anchor="middle" font-size="12.5" font-weight="650">2a. Extract &amp; Filter</text>
-      <text x="310" y="314" text-anchor="middle" font-size="10.5" opacity="0.75">Source (Confins, cust_type=company)</text>
-      <text x="310" y="330" text-anchor="middle" font-size="10.5" opacity="0.75">→ Lookup d01_staging → staging_d01</text>
+      <text x="310" y="314" text-anchor="middle" font-size="10.5" opacity="0.75">Source (ifin)</text>
+      <text x="310" y="330" text-anchor="middle" font-size="10.5" opacity="0.75">→ Lookup confins by cif → Destination (mis : staging_d01)</text>
       <line x1="310" y1="343" x2="310" y2="365" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
 
       <rect x="115" y="367" width="390" height="78" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
       <text x="130" y="387" font-size="10" opacity="0.6" font-style="italic">[ Execute SQL Task ]</text>
       <text x="310" y="408" text-anchor="middle" font-size="12.5" font-weight="650">3a. Data Validation</text>
-      <text x="310" y="426" text-anchor="middle" font-size="10.5" opacity="0.75">UPDATE staging_d01 SET ... = dbo.fn_*()</text>
+      <text x="310" y="426" text-anchor="middle" font-size="10.5" opacity="0.75">Use function ( mis staging_d01 )</text>
       <line x1="310" y1="445" x2="310" y2="467" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
 
       <rect x="115" y="469" width="390" height="110" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
@@ -84,14 +84,14 @@
       <rect x="695" y="255" width="390" height="88" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
       <text x="710" y="275" font-size="10" opacity="0.6" font-style="italic">[ Data Flow Task ]</text>
       <text x="890" y="296" text-anchor="middle" font-size="12.5" font-weight="650">2b. Extract &amp; Filter</text>
-      <text x="890" y="314" text-anchor="middle" font-size="10.5" opacity="0.75">Source (Confins, cust_type=personal, +spouse)</text>
-      <text x="890" y="330" text-anchor="middle" font-size="10.5" opacity="0.75">→ Lookup d02_staging → staging_d02</text>
+      <text x="890" y="314" text-anchor="middle" font-size="10.5" opacity="0.75">Source (ifin)</text>
+      <text x="890" y="330" text-anchor="middle" font-size="10.5" opacity="0.75">→ Lookup confins by cif → Destination (mis : staging_d02)</text>
       <line x1="890" y1="343" x2="890" y2="365" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
 
       <rect x="695" y="367" width="390" height="78" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
       <text x="710" y="387" font-size="10" opacity="0.6" font-style="italic">[ Execute SQL Task ]</text>
       <text x="890" y="408" text-anchor="middle" font-size="12.5" font-weight="650">3b. Data Validation</text>
-      <text x="890" y="426" text-anchor="middle" font-size="10.5" opacity="0.75">UPDATE staging_d02 SET ... = dbo.fn_*()</text>
+      <text x="890" y="426" text-anchor="middle" font-size="10.5" opacity="0.75">Use function ( mis staging_d02 )</text>
       <line x1="890" y1="445" x2="890" y2="467" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
 
       <rect x="695" y="469" width="390" height="110" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/>
