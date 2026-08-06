@@ -1,101 +1,87 @@
-<mxfile host="app.diagrams.net" version="24.0.0">
+<mxfile host="app.diagrams.net">
   <diagram name="SSIS Process Flow" id="processflow1">
-    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2589" dy="1072" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-
-        <!-- START -->
-        <mxCell id="start" value="START — Package Execute" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="480" y="20" width="240" height="50" as="geometry" />
+        <mxCell id="start" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" value="START — Package Execute" vertex="1">
+          <mxGeometry height="50" width="240" x="480" y="20" as="geometry" />
         </mxCell>
-
-        <!-- Step 1: Truncate -->
-        <mxCell id="s1" value="[ Execute SQL Task ]&#10;1. Truncate Staging (staging_d01 &amp; staging_d02)" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=6;" vertex="1" parent="1">
-          <mxGeometry x="410" y="100" width="380" height="65" as="geometry" />
+        <mxCell id="s1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=6;" value="[ Execute SQL Task ]&#xa;1. Truncate Staging (staging_d01 &amp; staging_d02)" vertex="1">
+          <mxGeometry height="65" width="380" x="410" y="100" as="geometry" />
         </mxCell>
-
-        <!-- Branch label -->
-        <mxCell id="branchlbl" value="berjalan paralel" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="530" y="172" width="140" height="20" as="geometry" />
+        <mxCell id="branchlbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" value="berjalan paralel" vertex="1">
+          <mxGeometry height="20" width="140" x="530" y="172" as="geometry" />
         </mxCell>
-
-        <!-- Sequence Container D01 -->
-        <mxCell id="containerD01" value="Sequence Container — D01 (Company)" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="90" y="215" width="440" height="430" as="geometry" />
+        <mxCell id="containerD01" parent="1" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" value="Sequence Container — D01 (Company)" vertex="1">
+          <mxGeometry height="430" width="440" x="90" y="215" as="geometry" />
         </mxCell>
-
-        <mxCell id="d01-2" value="[ Data Flow Task ]&#10;2a. Extract &amp; Filter&#10;Source (Confins, cust_type=company)&#10;→ Lookup d01_staging → staging_d01" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="115" y="255" width="390" height="88" as="geometry" />
+        <mxCell id="d01-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;2a. Extract &amp; Filter&#xa;Source (Confins, cust_type=company)&#xa;→ Lookup d01_staging → staging_d01" vertex="1">
+          <mxGeometry height="88" width="390" x="115" y="255" as="geometry" />
         </mxCell>
-
-        <mxCell id="d01-3" value="[ Execute SQL Task ]&#10;3a. Data Validation&#10;UPDATE staging_d01 SET ... = dbo.fn_*()" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="115" y="367" width="390" height="78" as="geometry" />
+        <mxCell id="d01-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Execute SQL Task ]&#xa;3a. Data Validation&#xa;UPDATE staging_d01 SET ... = dbo.fn_*()" vertex="1">
+          <mxGeometry height="78" width="390" x="115" y="367" as="geometry" />
         </mxCell>
-
-        <mxCell id="d01-4" value="[ Data Flow Task ]&#10;4a. Load &amp; Push (Multicast)&#10;UPDATE IFIN (d01_staging)&#10;UPDATE Confins (1 tabel)&#10;Insert etl_d01_history" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="115" y="469" width="390" height="110" as="geometry" />
+        <mxCell id="d01-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;4a. Load &amp; Push (Multicast)&#xa;UPDATE IFIN (d01_staging)&#xa;UPDATE Confins (1 tabel)&#xa;Insert etl_d01_history" vertex="1">
+          <mxGeometry height="110" width="390" x="115" y="469" as="geometry" />
         </mxCell>
-
-        <!-- Sequence Container D02 -->
-        <mxCell id="containerD02" value="Sequence Container — D02 (Perorangan)" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" vertex="1" parent="1">
-          <mxGeometry x="670" y="215" width="440" height="430" as="geometry" />
+        <mxCell id="containerD02" parent="1" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" value="Sequence Container — D02 (Perorangan)" vertex="1">
+          <mxGeometry height="430" width="440" x="670" y="215" as="geometry" />
         </mxCell>
-
-        <mxCell id="d02-2" value="[ Data Flow Task ]&#10;2b. Extract &amp; Filter&#10;Source (Confins, cust_type=personal, +spouse)&#10;→ Lookup d02_staging → staging_d02" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="695" y="255" width="390" height="88" as="geometry" />
+        <mxCell id="d02-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;2b. Extract &amp; Filter&#xa;Source (Confins, cust_type=personal, +spouse)&#xa;→ Lookup d02_staging → staging_d02" vertex="1">
+          <mxGeometry height="88" width="390" x="695" y="255" as="geometry" />
         </mxCell>
-
-        <mxCell id="d02-3" value="[ Execute SQL Task ]&#10;3b. Data Validation&#10;UPDATE staging_d02 SET ... = dbo.fn_*()" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="695" y="367" width="390" height="78" as="geometry" />
+        <mxCell id="d02-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Execute SQL Task ]&#xa;3b. Data Validation&#xa;UPDATE staging_d02 SET ... = dbo.fn_*()" vertex="1">
+          <mxGeometry height="78" width="390" x="695" y="367" as="geometry" />
         </mxCell>
-
-        <mxCell id="d02-4" value="[ Data Flow Task ]&#10;4b. Load &amp; Push (Multicast)&#10;UPDATE IFIN (d02_staging)&#10;UPDATE Confins (1 tabel)&#10;Insert etl_d02_history" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="695" y="469" width="390" height="110" as="geometry" />
+        <mxCell id="d02-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;4b. Load &amp; Push (Multicast)&#xa;UPDATE IFIN (d02_staging)&#xa;UPDATE Confins (1 tabel)&#xa;Insert etl_d02_history" vertex="1">
+          <mxGeometry height="110" width="390" x="695" y="469" as="geometry" />
         </mxCell>
-
-        <!-- Converge label -->
-        <mxCell id="convergelbl" value="tunggu dua-duanya selesai" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" vertex="1" parent="1">
-          <mxGeometry x="530" y="670" width="140" height="20" as="geometry" />
+        <mxCell id="convergelbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" value="tunggu dua-duanya selesai" vertex="1">
+          <mxGeometry height="20" width="140" x="530" y="670" as="geometry" />
         </mxCell>
-
-        <!-- Step 5: Update Run Log -->
-        <mxCell id="s5" value="[ Execute SQL Task ]&#10;5. Update Run Log&#10;status = SUCCESS, end_time = GETDATE()" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=4;" vertex="1" parent="1">
-          <mxGeometry x="430" y="720" width="340" height="70" as="geometry" />
+        <mxCell id="s5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=4;" value="[ Execute SQL Task ]&#xa;5. Update Run Log&#xa;status = SUCCESS, end_time = GETDATE()" vertex="1">
+          <mxGeometry height="70" width="340" x="430" y="720" as="geometry" />
         </mxCell>
-
-        <!-- END -->
-        <mxCell id="end" value="END — Success" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="480" y="820" width="240" height="50" as="geometry" />
+        <mxCell id="end" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" value="END — Success" vertex="1">
+          <mxGeometry height="50" width="240" x="480" y="820" as="geometry" />
         </mxCell>
-
-        <!-- Error handling box -->
-        <mxCell id="errbox" value="OnError Event Handler (di level Package)&#10;Jika langkah di cabang D01 ATAU D02 gagal di titik manapun → fire otomatis, tidak perlu precedence constraint merah manual" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="90" y="900" width="1020" height="110" as="geometry" />
+        <mxCell id="e-start-s1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="s1">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <mxCell id="errtask" value="INSERT INTO slik_ssis_process_log" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
-          <mxGeometry x="430" y="950" width="340" height="45" as="geometry" />
+        <mxCell id="e-s1-d01" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="d01-2">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-
-        <!-- EDGES -->
-        <mxCell id="e-start-s1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" edge="1" parent="1" source="start" target="s1"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-s1-d01" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="s1" target="d01-2"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-s1-d02" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="s1" target="d02-2"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-        <mxCell id="e-d01-2-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" edge="1" parent="1" source="d01-2" target="d01-3"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-d01-3-4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" edge="1" parent="1" source="d01-3" target="d01-4"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-        <mxCell id="e-d02-2-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" edge="1" parent="1" source="d02-2" target="d02-3"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-d02-3-4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" edge="1" parent="1" source="d02-3" target="d02-4"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-        <mxCell id="e-d01-s5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" edge="1" parent="1" source="d01-4" target="s5"><mxGeometry relative="1" as="geometry" /></mxCell>
-        <mxCell id="e-d02-s5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" edge="1" parent="1" source="d02-4" target="s5"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-        <mxCell id="e-s5-end" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" edge="1" parent="1" source="s5" target="end"><mxGeometry relative="1" as="geometry" /></mxCell>
-
-        <mxCell id="e-err-task" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;dashed=1;" edge="1" parent="1" source="errbox" target="errtask"><mxGeometry relative="1" as="geometry" /></mxCell>
-
+        <mxCell id="e-s1-d02" edge="1" parent="1" source="s1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" target="d02-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d01-2-3" edge="1" parent="1" source="d01-2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d01-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d01-3-4" edge="1" parent="1" source="d01-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d01-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d02-2-3" edge="1" parent="1" source="d02-2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d02-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d02-3-4" edge="1" parent="1" source="d02-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d02-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d01-s5" edge="1" parent="1" source="d01-4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d02-s5" edge="1" parent="1" source="d02-4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.75;entryY=0;" target="s5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-s5-end" edge="1" parent="1" source="s5" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-err-task" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;dashed=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600.0769230769233" y="1010" as="sourcePoint" />
+            <mxPoint x="600.0769230769233" y="995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
