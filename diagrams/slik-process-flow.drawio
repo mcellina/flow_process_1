@@ -7,7 +7,7 @@
         <mxCell id="start" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" value="START — Package Execute" vertex="1">
           <mxGeometry height="50" width="240" x="480" y="20" as="geometry" />
         </mxCell>
-        <mxCell id="s1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=6;" value="[ Execute SQL Task ]&#xa;1. Truncate Staging (staging_d01 &amp; staging_d02)" vertex="1">
+        <mxCell id="s1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=6;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Execute SQL Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;1. Truncate Staging (staging_d01 &amp; staging_d02)&lt;/b&gt;" vertex="1">
           <mxGeometry height="65" width="380" x="410" y="100" as="geometry" />
         </mxCell>
         <mxCell id="branchlbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" value="berjalan paralel" vertex="1">
@@ -16,31 +16,31 @@
         <mxCell id="containerD01" parent="1" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" value="Sequence Container — D01 (Company)" vertex="1">
           <mxGeometry height="430" width="440" x="90" y="215" as="geometry" />
         </mxCell>
-        <mxCell id="d01-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;2a. Extract &amp; Filter&#xa;Source (ifin)&#xa;→ Lookup confins by cif → Destination (mis : staging_d01)" vertex="1">
+        <mxCell id="d01-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Data Flow Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;2a. Extract &amp; Filter&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;Source (ifin)&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;→ Lookup confins by cif → Destination (mis : staging_d01)&lt;/font&gt;" vertex="1">
           <mxGeometry height="88" width="390" x="115" y="255" as="geometry" />
         </mxCell>
-        <mxCell id="d01-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Execute SQL Task ]&#xa;3a. Data Validation&#xa;UPDATE staging_d01 SET ... = dbo.fn_*()" vertex="1">
+        <mxCell id="d01-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Execute SQL Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;3a. Data Validation&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;UPDATE staging_d01 SET ... = dbo.fn_*()&lt;/font&gt;" vertex="1">
           <mxGeometry height="78" width="390" x="115" y="367" as="geometry" />
         </mxCell>
-        <mxCell id="d01-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;4a. Load &amp; Push (Multicast)&#xa;UPDATE IFIN (d01_staging)&#xa;UPDATE Confins (1 tabel)&#xa;Insert etl_d01_history" vertex="1">
+        <mxCell id="d01-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Data Flow Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;4a. Load &amp; Push (Multicast)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;UPDATE IFIN (d01_staging)&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;UPDATE Confins (1 tabel)&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;Insert etl_d01_history&lt;/font&gt;" vertex="1">
           <mxGeometry height="110" width="390" x="115" y="469" as="geometry" />
         </mxCell>
         <mxCell id="containerD02" parent="1" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" value="Sequence Container — D02 (Perorangan)" vertex="1">
           <mxGeometry height="430" width="440" x="670" y="215" as="geometry" />
         </mxCell>
-        <mxCell id="d02-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;2b. Extract &amp; Filter&#xa;Source (ifin)&#xa;→ Lookup confins by cif → Destination (mis : staging_d02)" vertex="1">
+        <mxCell id="d02-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Data Flow Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;2b. Extract &amp; Filter&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;Source (ifin)&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;→ Lookup confins by cif → Destination (mis : staging_d02)&lt;/font&gt;" vertex="1">
           <mxGeometry height="88" width="390" x="695" y="255" as="geometry" />
         </mxCell>
-        <mxCell id="d02-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Execute SQL Task ]&#xa;3b. Data Validation&#xa;UPDATE staging_d02 SET ... = dbo.fn_*()" vertex="1">
+        <mxCell id="d02-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Execute SQL Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;3b. Data Validation&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;UPDATE staging_d02 SET ... = dbo.fn_*()&lt;/font&gt;" vertex="1">
           <mxGeometry height="78" width="390" x="695" y="367" as="geometry" />
         </mxCell>
-        <mxCell id="d02-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="[ Data Flow Task ]&#xa;4b. Load &amp; Push (Multicast)&#xa;UPDATE IFIN (d02_staging)&#xa;UPDATE Confins (1 tabel)&#xa;Insert etl_d02_history" vertex="1">
+        <mxCell id="d02-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Data Flow Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;4b. Load &amp; Push (Multicast)&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;UPDATE IFIN (d02_staging)&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;UPDATE Confins (1 tabel)&lt;/font&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;Insert etl_d02_history&lt;/font&gt;" vertex="1">
           <mxGeometry height="110" width="390" x="695" y="469" as="geometry" />
         </mxCell>
         <mxCell id="convergelbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" value="tunggu dua-duanya selesai" vertex="1">
           <mxGeometry height="20" width="140" x="530" y="670" as="geometry" />
         </mxCell>
-        <mxCell id="s5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=4;" value="[ Execute SQL Task ]&#xa;5. Update Run Log&#xa;status = SUCCESS, end_time = GETDATE()" vertex="1">
+        <mxCell id="s5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Execute SQL Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;5. Update Run Log&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;status = SUCCESS, end_time = GETDATE()&lt;/font&gt;" vertex="1">
           <mxGeometry height="70" width="340" x="430" y="720" as="geometry" />
         </mxCell>
         <mxCell id="end" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" value="END — Success" vertex="1">
