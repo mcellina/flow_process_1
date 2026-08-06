@@ -146,7 +146,7 @@
     </svg>
 
     <figcaption>
-      Business flow for building Form D01, from a non-technical view (outside SSIS component detail): <b>iFin</b> provides the CIF/NIK as the trigger, <b>MIS</b> assembles &amp; validates the data (pulling debtor details from <b>Confins</b>) into the <code>D01_staging</code> table, then sends it to <b>iFin</b> at step <b>5. Load Data</b>. That send has <b>two destinations at once</b> (similar to the Multicast pattern in the technical SSIS diagram) — <b>iFin</b> inserts/updates the <code>D01</code> table while <b>MIS</b> in parallel inserts a copy into <code>D01_History</code>. Only once <b>both branches finish</b> is the status updated at iFin (step 7) — it is not part of the parallel branch.
+      Alur bisnis pembentukan Form D01, dari sudut pandang non-teknis (di luar detail komponen SSIS): <b>iFin</b> memberikan CIF/NIK sebagai pemicu, <b>MIS</b> membentuk &amp; memvalidasi data (mengambil detail debitur dari <b>Confins</b>) ke dalam tabel <code>D01_staging</code>, lalu mengirimkannya ke <b>iFin</b> pada langkah <b>5. Load Data</b>. Pengiriman itu punya <b>two destinations at once</b> (mirip pola Multicast pada diagram SSIS teknis) — <b>iFin</b> meng-insert/update tabel <code>D01</code> sementara <b>MIS</b> secara paralel meng-insert salinan ke <code>D01_History</code>. Baru setelah <b>both branches finish</b>, status di-update di iFin (langkah 7) — bukan bagian dari cabang paralel.
     </figcaption>
   </figure>
 </body>
