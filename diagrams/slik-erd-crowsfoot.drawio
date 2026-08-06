@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" version="24.0.0">
+<mxfile host="app.diagrams.net">
   <diagram name="ERD d01_staging" id="erdcrowsfoot1">
     <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="1350" math="0" shadow="0">
       <root>
@@ -129,7 +129,91 @@
         <mxCell id="nofk" value="nggak ada FK&#10;(staging di-truncate)" style="text;html=1;align=center;verticalAlign=middle;fontSize=9.5;fontStyle=2;fontColor=#999999;" vertex="1" parent="1">
           <mxGeometry x="520" y="85" width="78" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="nofk_line" style="edgeStyle=none;html=1;endArrow=none;dashed=1;strokeColor=#999999;" edge="1" parent="1" source="d01staging" target="d01hist">
+        <mxCell id="d01_r2t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="BIGINT NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r3n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="cre_date" vertex="1">
+          <mxGeometry height="26" width="250" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r3t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="DATETIME2(7) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r4n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="cre_by" vertex="1">
+          <mxGeometry height="26" width="250" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r4t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(15) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="104" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r5n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="cre_ip_address" vertex="1">
+          <mxGeometry height="26" width="250" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r5t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(15) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r6n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="mod_date" vertex="1">
+          <mxGeometry height="26" width="250" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r6t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="DATETIME2(7) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="156" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r7n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="mod_by" vertex="1">
+          <mxGeometry height="26" width="250" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r7t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(15) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r8n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="mod_ip_address" vertex="1">
+          <mxGeometry height="26" width="250" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r8t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(15) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="208" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r9n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="form_transaction_id" vertex="1">
+          <mxGeometry height="26" width="250" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r9t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(50) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="234" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r10n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="flag_detail" vertex="1">
+          <mxGeometry height="26" width="250" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r10t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(2) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r11n" parent="d01staging" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="cif" vertex="1">
+          <mxGeometry height="26" width="250" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_r11t" parent="d01staging" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="VARCHAR(40) NN" vertex="1">
+          <mxGeometry height="26" width="98" x="294" y="286" as="geometry" />
+        </mxCell>
+        <mxCell id="d01_note" parent="1" style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontStyle=2;fontColor=#888888;spacingLeft=12;whiteSpace=wrap;" value="+ 41 kolom lain, semua NULL-able (nik, nama, alamat, *_ojk_code, pasangan,&#xa;penghasilan, period, dll — lihat Data Dictionary)" vertex="1">
+          <mxGeometry height="34" width="420" x="40" y="344" as="geometry" />
+        </mxCell>
+        <mxCell id="d01hist" parent="1" style="swimlane;html=1;fontStyle=1;fontColor=#ffffff;fillColor=#1f2430;swimlaneFillColor=#ffffff;fontSize=12.5;align=center;startSize=26;" value="d01_staging_hist" vertex="1">
+          <mxGeometry height="131" width="300" x="560" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_r1pk" parent="d01hist" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;spacingLeft=8;" value="PK" vertex="1">
+          <mxGeometry height="26" width="36" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_r1n" parent="d01hist" style="text;html=1;align=left;verticalAlign=middle;fontSize=10.5;fontStyle=1;spacingLeft=6;" value="staging_hist_id" vertex="1">
+          <mxGeometry height="26" width="140" x="44" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_r1t" parent="d01hist" style="text;html=1;align=right;verticalAlign=middle;fontSize=10;fontColor=#666666;spacingRight=8;" value="BIGINT IDENTITY(1,1)" vertex="1">
+          <mxGeometry height="26" width="108" x="184" y="26" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_r2" parent="d01hist" style="text;html=1;align=left;verticalAlign=middle;fontSize=10.5;fontStyle=2;fontColor=#666666;spacingLeft=44;whiteSpace=wrap;" value="↳ seluruh kolom sama seperti d01_staging (id, cif, nik, ... dst)" vertex="1">
+          <mxGeometry height="53" width="300" y="52" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_r3n" parent="d01hist" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" value="load_dt" vertex="1">
+          <mxGeometry height="26" width="140" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="hist_r3t" parent="d01hist" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" value="DATETIME" vertex="1">
+          <mxGeometry height="26" width="108" x="184" y="105" as="geometry" />
+        </mxCell>
+        <mxCell id="nofk" parent="1" style="text;html=1;align=center;verticalAlign=middle;fontSize=9.5;fontStyle=2;fontColor=#999999;" value="&lt;br&gt;(staging di-truncate)" vertex="1">
+          <mxGeometry height="30" width="118" x="440" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="nofk_line" edge="1" parent="1" source="d01staging" style="edgeStyle=none;html=1;endArrow=none;dashed=1;strokeColor=#999999;" target="d01hist">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="520" y="100" />
