@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
-<title>Business Process Flow — Building &amp; Sending Form D01</title>
+<title>Flow Process — Pembentukan &amp; Pengiriman Form D01</title>
 <style>
   :root { color-scheme: light; }
   html, body {
@@ -13,141 +13,103 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   figure { margin: 0; padding: 32px; background: #ffffff; }
-  figcaption {
-    max-width: 900px;
-    margin: 20px auto 0;
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: #444444;
-  }
   svg text { fill: #1a1a1a; }
+  svg tspan[font-family="monospace"] { font-family: "SFMono-Regular", Consolas, monospace; font-size: 10px; }
 </style>
 </head>
 <body>
   <figure>
-    <svg viewBox="0 0 1000 1230" role="img" aria-label="Business process flow for building and sending Form D01: from CIF/NIK retrieval at iFin, assembling debtor detail data from Confins, storing and validating in MIS staging, sending data to iFin which forks into two parallel destinations — insert/update the D01 table at iFin and insert into history at MIS — then waits for both branches before updating status at iFin.">
+    <svg viewBox="0 0 1120 786" role="img" aria-label="Flow proses pembentukan dan pengiriman Form D01: kotak flow ringkas di kolom kiri (Ambil CIF/NIK, Extract dan Filter Data, Simpan ke D01_staging, Validasi D01_staging, Load Data, lalu bercabang jadi Insert/Update D01 dan Insert ke History, menunggu keduanya, baru Update Status), dengan keterangan lengkap di kolom kanan.">
       <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
           <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
         </marker>
       </defs>
 
-      <!-- Title -->
-      <text x="40" y="36" font-size="19" font-weight="700">Business Process Flow — Building &amp; Sending Form D01</text>
-      <text x="40" y="58" font-size="12.5" opacity="0.65">SLIK OJK · GetDataSlikFromConfins — from CIF/NIK retrieval to status update at iFin</text>
+      <!-- Outer border -->
+      <rect x="2" y="2" width="1116" height="782" fill="none" stroke="currentColor" stroke-width="1.4"/>
 
-      <!-- Start -->
-      <rect x="380" y="110" width="240" height="50" rx="25" fill="none" stroke="currentColor" stroke-width="1.6"/>
-      <text x="500" y="141" text-anchor="middle" font-size="13" font-weight="650">START</text>
-      <line x1="500" y1="160" x2="500" y2="198" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+      <!-- Header -->
+      <rect x="2" y="2" width="1116" height="48" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <text x="560" y="31" text-anchor="middle" font-size="14.5" font-weight="700">Flow Process — Pembentukan &amp; Pengiriman Form D01</text>
 
-      <!-- Step 1 -->
-      <rect x="240" y="200" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="240" y="200" width="5" height="72" rx="2.5" fill="#2563eb"/>
-      <circle cx="274" cy="236.0" r="14" fill="none" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="274" y="240.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2563eb">1</text>
-      <text x="302" y="219" font-size="9" font-weight="650" letter-spacing="0.4" fill="#2563eb">IFIN</text>
-      <text x="302" y="236" font-size="12.5" font-weight="650">Retrieve CIF / NIK</text>
-      <text x="302" y="253" font-size="10" opacity="0.75">Retrieve CIF / NIK from iFin as the reference to build Form D01</text>
-      <line x1="500.0" y1="272" x2="500.0" y2="300" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
+      <!-- Column divider -->
+      <line x1="400" y1="50" x2="400" y2="784" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.5"/>
 
-      <!-- Step 2 -->
-      <rect x="240" y="302" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="240" y="302" width="5" height="72" rx="2.5" fill="#059669"/>
-      <circle cx="274" cy="338.0" r="14" fill="none" stroke="#059669" stroke-width="1.5"/>
-      <text x="274" y="342.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#059669">2</text>
-      <text x="302" y="321" font-size="9" font-weight="650" letter-spacing="0.4" fill="#059669">MIS  •  SOURCE: CONFINS</text>
-      <text x="302" y="338" font-size="12.5" font-weight="650">Extract &amp; Filter Form D01 Data</text>
-      <text x="302" y="355" font-size="10" opacity="0.75">Pull debtor details (name, address, etc.) from Confins using the CIF from step 1</text>
-      <line x1="500.0" y1="374" x2="500.0" y2="402" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-
-      <!-- Step 3 -->
-      <rect x="240" y="404" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="240" y="404" width="5" height="72" rx="2.5" fill="#059669"/>
-      <circle cx="274" cy="440.0" r="14" fill="none" stroke="#059669" stroke-width="1.5"/>
-      <text x="274" y="444.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#059669">3</text>
-      <text x="302" y="423" font-size="9" font-weight="650" letter-spacing="0.4" fill="#059669">MIS</text>
-      <text x="302" y="440" font-size="12.5" font-weight="650">Store to D01_staging</text>
-      <text x="302" y="457" font-size="10" opacity="0.75">Save debtor detail data to the MIS database, table D01_staging</text>
-      <line x1="500.0" y1="476" x2="500.0" y2="504" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-
-      <!-- Step 4 -->
-      <rect x="240" y="506" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="240" y="506" width="5" height="72" rx="2.5" fill="#059669"/>
-      <circle cx="274" cy="542.0" r="14" fill="none" stroke="#059669" stroke-width="1.5"/>
-      <text x="274" y="546.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#059669">4</text>
-      <text x="302" y="525" font-size="9" font-weight="650" letter-spacing="0.4" fill="#059669">MIS</text>
-      <text x="302" y="542" font-size="12.5" font-weight="650">Validate D01_staging Data</text>
-      <text x="302" y="559" font-size="10" opacity="0.75">Validate the D01_staging table using a function</text>
-      <line x1="500.0" y1="578" x2="500.0" y2="606" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-
-      <!-- Step 5 -->
-      <rect x="240" y="608" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="240" y="608" width="5" height="72" rx="2.5" fill="#d97706"/>
-      <circle cx="274" cy="644.0" r="14" fill="none" stroke="#d97706" stroke-width="1.5"/>
-      <text x="274" y="648.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#d97706">5</text>
-      <text x="302" y="627" font-size="9" font-weight="650" letter-spacing="0.4" fill="#d97706">MIS → IFIN</text>
-      <text x="302" y="644" font-size="12.5" font-weight="650">Load Data</text>
-      <text x="302" y="661" font-size="10" opacity="0.75">Send cleaned data from MIS (Staging) to iFin</text>
-
-      <!-- Fork -->
-      <line x1="500" y1="680" x2="500" y2="710" stroke="currentColor" stroke-width="1.4"/>
-      <line x1="290.0" y1="710" x2="710.0" y2="710" stroke="currentColor" stroke-width="1.4"/>
-      <line x1="290.0" y1="710" x2="290.0" y2="728" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-      <line x1="710.0" y1="710" x2="710.0" y2="728" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-      <text x="500" y="704" text-anchor="middle" font-size="10.5" opacity="0.7">runs in parallel — one send, two destinations</text>
-
-      <!-- Step 6a -->
-      <rect x="100" y="730" width="380" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="100" y="730" width="5" height="72" rx="2.5" fill="#2563eb"/>
-      <circle cx="130" cy="766.0" r="13" fill="none" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="130" y="770.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2563eb">6a</text>
-      <text x="154" y="749" font-size="9" font-weight="650" letter-spacing="0.4" fill="#2563eb">IFIN</text>
-      <text x="154" y="766" font-size="12" font-weight="650">Insert / Update D01 Table</text>
-      <text x="154" y="783" font-size="9.5" opacity="0.75">Insert / update into the D01 table on the iFin database server</text>
-
-      <!-- Step 6b -->
-      <rect x="520" y="730" width="380" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="520" y="730" width="5" height="72" rx="2.5" fill="#059669"/>
-      <circle cx="550" cy="766.0" r="13" fill="none" stroke="#059669" stroke-width="1.5"/>
-      <text x="550" y="770.0" text-anchor="middle" font-size="10.5" font-weight="700" fill="#059669">6b</text>
-      <text x="574" y="749" font-size="9" font-weight="650" letter-spacing="0.4" fill="#059669">MIS</text>
-      <text x="574" y="766" font-size="12" font-weight="650">Insert into D01_History</text>
-      <text x="574" y="783" font-size="9.5" opacity="0.75">Insert D01_staging data into the D01_History table (MIS)</text>
-
-      <!-- Converge -->
-      <line x1="290.0" y1="802" x2="290.0" y2="832" stroke="currentColor" stroke-width="1.4"/>
-      <line x1="710.0" y1="802" x2="710.0" y2="832" stroke="currentColor" stroke-width="1.4"/>
-      <line x1="290.0" y1="832" x2="710.0" y2="832" stroke="currentColor" stroke-width="1.4"/>
-      <text x="500" y="826" text-anchor="middle" font-size="10.5" opacity="0.7">waits for both branches to finish</text>
-      <line x1="500" y1="832" x2="500" y2="860" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-
-      <!-- Step 7 -->
-      <rect x="240" y="862" width="520" height="72" rx="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      <rect x="240" y="862" width="5" height="72" rx="2.5" fill="#2563eb"/>
-      <circle cx="274" cy="898.0" r="14" fill="none" stroke="#2563eb" stroke-width="1.5"/>
-      <text x="274" y="902.5" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2563eb">7</text>
-      <text x="302" y="881" font-size="9" font-weight="650" letter-spacing="0.4" fill="#2563eb">IFIN</text>
-      <text x="302" y="898" font-size="12.5" font-weight="650">Update Status</text>
-      <text x="302" y="915" font-size="10" opacity="0.75">Update flag = 0 in the log table on iFin</text>
-      <line x1="500" y1="934" x2="500" y2="962" stroke="currentColor" stroke-width="1.4" marker-end="url(#arrow)"/>
-
-      <!-- End -->
-      <rect x="380" y="964" width="240" height="50" rx="25" fill="none" stroke="currentColor" stroke-width="1.6"/>
-      <text x="500" y="995" text-anchor="middle" font-size="13" font-weight="650">END</text>
+      <rect x="135.0" y="78" width="150" height="38" rx="19" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="210.0" y="102" text-anchor="middle" font-size="11.5" font-weight="650">START</text>
+      <line x1="210.0" y1="116" x2="210.0" y2="142" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="40" y="144" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="144" width="4" height="50" rx="2" fill="#2563eb"/>
+      <text x="56" y="162" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#2563eb">IFIN</text>
+      <text x="56" y="181" font-size="12" font-weight="650">1. Ambil CIF / NIK</text>
+      <text x="420" y="158" font-size="11" opacity="0.85">Ambil CIF / NIK dari <tspan font-weight="700">iFin</tspan> sebagai acuan pembentukan Form D01.</text>
+      <line x1="210.0" y1="194" x2="210.0" y2="214" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="40" y="216" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="216" width="4" height="50" rx="2" fill="#059669"/>
+      <text x="56" y="234" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS • CONFINS</text>
+      <text x="56" y="253" font-size="12" font-weight="650">2. Extract &amp; Filter Data</text>
+      <text x="420" y="230" font-size="11" opacity="0.85">Ambil detail debitur (nama, alamat, dll) dari <tspan font-weight="700">Confins</tspan></text>
+      <text x="420" y="247" font-size="11" opacity="0.85">menggunakan CIF dari langkah 1.</text>
+      <line x1="210.0" y1="266" x2="210.0" y2="286" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="40" y="288" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="288" width="4" height="50" rx="2" fill="#059669"/>
+      <text x="56" y="306" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS</text>
+      <text x="56" y="325" font-size="12" font-weight="650">3. Simpan ke D01_staging</text>
+      <text x="420" y="302" font-size="11" opacity="0.85">Simpan data detail debitur ke database <tspan font-weight="700">MIS</tspan>,</text>
+      <text x="420" y="319" font-size="11" opacity="0.85">tabel <tspan font-family="monospace">D01_staging</tspan>.</text>
+      <line x1="210.0" y1="338" x2="210.0" y2="358" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="40" y="360" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="360" width="4" height="50" rx="2" fill="#059669"/>
+      <text x="56" y="378" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS</text>
+      <text x="56" y="397" font-size="12" font-weight="650">4. Validasi D01_staging</text>
+      <text x="420" y="374" font-size="11" opacity="0.85">Validasi tabel <tspan font-family="monospace">D01_staging</tspan> menggunakan function.</text>
+      <line x1="210.0" y1="410" x2="210.0" y2="430" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="40" y="432" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="432" width="4" height="50" rx="2" fill="#d97706"/>
+      <text x="56" y="450" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#d97706">MIS → IFIN</text>
+      <text x="56" y="469" font-size="12" font-weight="650">5. Load Data</text>
+      <text x="420" y="446" font-size="11" opacity="0.85">Kirim data yang sudah bersih dari <tspan font-weight="700">MIS</tspan> (Staging)</text>
+      <text x="420" y="463" font-size="11" opacity="0.85">ke <tspan font-weight="700">iFin</tspan>.</text>
+      <line x1="210.0" y1="482" x2="210.0" y2="504" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="121.0" y1="504" x2="299.0" y2="504" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="121.0" y1="504" x2="121.0" y2="520" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <line x1="299.0" y1="504" x2="299.0" y2="520" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <text x="210.0" y="499" text-anchor="middle" font-size="9" opacity="0.65">paralel</text>
+      <rect x="40" y="522" width="162.0" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="522" width="4" height="50" rx="2" fill="#2563eb"/>
+      <text x="56" y="540" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#2563eb">IFIN</text>
+      <text x="56" y="559" font-size="12" font-weight="650">6a. Insert/Update D01</text>
+      <rect x="218.0" y="522" width="162.0" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="218.0" y="522" width="4" height="50" rx="2" fill="#059669"/>
+      <text x="234.0" y="540" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#059669">MIS</text>
+      <text x="234.0" y="559" font-size="12" font-weight="650">6b. Insert ke History</text>
+      <text x="420" y="536" font-size="11" opacity="0.85"><tspan font-weight="700">6a</tspan> — Insert / update ke tabel D01 pada server</text>
+      <text x="420" y="553" font-size="11" opacity="0.85">database <tspan font-weight="700">iFin</tspan>.</text>
+      <text x="420" y="570" font-size="11" opacity="0.85"><tspan font-weight="700">6b</tspan> — Insert data D01_staging ke tabel</text>
+      <text x="420" y="587" font-size="11" opacity="0.85"><tspan font-family="monospace">D01_History</tspan> (MIS).</text>
+      <line x1="121.0" y1="572" x2="121.0" y2="594" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="299.0" y1="572" x2="299.0" y2="594" stroke="currentColor" stroke-width="1.3"/>
+      <line x1="121.0" y1="594" x2="299.0" y2="594" stroke="currentColor" stroke-width="1.3"/>
+      <text x="210.0" y="589" text-anchor="middle" font-size="9" opacity="0.65">tunggu keduanya</text>
+      <line x1="210.0" y1="594" x2="210.0" y2="620" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="40" y="622" width="340" height="50" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <rect x="40" y="622" width="4" height="50" rx="2" fill="#2563eb"/>
+      <text x="56" y="640" font-size="8.5" font-weight="650" letter-spacing="0.3" fill="#2563eb">IFIN</text>
+      <text x="56" y="659" font-size="12" font-weight="650">7. Update Status</text>
+      <text x="420" y="636" font-size="11" opacity="0.85">Update <tspan font-family="monospace">flag = 0</tspan> pada tabel log di <tspan font-weight="700">iFin</tspan>.</text>
+      <line x1="210.0" y1="672" x2="210.0" y2="698" stroke="currentColor" stroke-width="1.3" marker-end="url(#arrow)"/>
+      <rect x="135.0" y="700" width="150" height="38" rx="19" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <text x="210.0" y="724" text-anchor="middle" font-size="11.5" font-weight="650">END</text>
 
       <!-- Legend -->
-      <rect x="240" y="1040" width="14" height="14" rx="3" fill="#2563eb"/>
-      <text x="260" y="1051" font-size="11" opacity="0.8">iFin</text>
-      <rect x="320" y="1040" width="14" height="14" rx="3" fill="#059669"/>
-      <text x="340" y="1051" font-size="11" opacity="0.8">MIS (UUS SLIK ETL Server)</text>
-      <rect x="530" y="1040" width="14" height="14" rx="3" fill="#d97706"/>
-      <text x="550" y="1051" font-size="11" opacity="0.8">Cross-system transition</text>
+      <rect x="420" y="700" width="12" height="12" rx="3" fill="#2563eb"/>
+      <text x="438" y="710" font-size="10" opacity="0.8">iFin</text>
+      <rect x="490" y="700" width="12" height="12" rx="3" fill="#059669"/>
+      <text x="508" y="710" font-size="10" opacity="0.8">MIS (Server ETL UUS SLIK)</text>
+      <rect x="680" y="700" width="12" height="12" rx="3" fill="#d97706"/>
+      <text x="698" y="710" font-size="10" opacity="0.8">Transisi antar-sistem</text>
     </svg>
-
-    <figcaption>
-      Alur bisnis pembentukan Form D01, dari sudut pandang non-teknis (di luar detail komponen SSIS): <b>iFin</b> memberikan CIF/NIK sebagai pemicu, <b>MIS</b> membentuk &amp; memvalidasi data (mengambil detail debitur dari <b>Confins</b>) ke dalam tabel <code>D01_staging</code>, lalu mengirimkannya ke <b>iFin</b> pada langkah <b>5. Load Data</b>. Pengiriman itu punya <b>two destinations at once</b> (mirip pola Multicast pada diagram SSIS teknis) — <b>iFin</b> meng-insert/update tabel <code>D01</code> sementara <b>MIS</b> secara paralel meng-insert salinan ke <code>D01_History</code>. Baru setelah <b>both branches finish</b>, status di-update di iFin (langkah 7) — bukan bagian dari cabang paralel.
-    </figcaption>
   </figure>
 </body>
 </html>
