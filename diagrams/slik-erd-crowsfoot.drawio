@@ -8,39 +8,52 @@
         <mxCell id="d01staging" value="d01_staging" style="swimlane;html=1;fontStyle=1;fontColor=#ffffff;fillColor=#1f2430;swimlaneFillColor=#ffffff;fontSize=12.5;align=center;startSize=26;" vertex="1" parent="1">
           <mxGeometry x="40" y="30" width="400" height="312" as="geometry" />
         </mxCell>
-        <mxCell id="d01_r1" value="PK   id                                                  VARCHAR(50) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;spacingLeft=8;" vertex="1" parent="d01staging">
-          <mxGeometry y="26" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r2" value="ukey                                                            BIGINT NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="52" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r3" value="cre_date                                              DATETIME2(7) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="78" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r4" value="cre_by                                                     VARCHAR(15) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="104" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r5" value="cre_ip_address                                        VARCHAR(15) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="130" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r6" value="mod_date                                             DATETIME2(7) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="156" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r7" value="mod_by                                                    VARCHAR(15) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="182" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r8" value="mod_ip_address                                       VARCHAR(15) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="208" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r9" value="form_transaction_id                              VARCHAR(50) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="234" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r10" value="flag_detail                                                  VARCHAR(2) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="260" width="400" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="d01_r11" value="cif                                                       VARCHAR(40) NN" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging">
-          <mxGeometry y="286" width="400" height="26" as="geometry" />
-        </mxCell>
+
+        <!-- row 1: PK id -->
+        <mxCell id="d01_r1pk" value="PK" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;spacingLeft=8;" vertex="1" parent="d01staging"><mxGeometry y="26" width="36" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r1n" value="id" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;spacingLeft=6;" vertex="1" parent="d01staging"><mxGeometry x="44" y="26" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r1t" value="VARCHAR(50) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="26" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 2: ukey -->
+        <mxCell id="d01_r2n" value="ukey" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="52" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r2t" value="BIGINT NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="52" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 3: cre_date -->
+        <mxCell id="d01_r3n" value="cre_date" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="78" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r3t" value="DATETIME2(7) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="78" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 4: cre_by -->
+        <mxCell id="d01_r4n" value="cre_by" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="104" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r4t" value="VARCHAR(15) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="104" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 5: cre_ip_address -->
+        <mxCell id="d01_r5n" value="cre_ip_address" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="130" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r5t" value="VARCHAR(15) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="130" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 6: mod_date -->
+        <mxCell id="d01_r6n" value="mod_date" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="156" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r6t" value="DATETIME2(7) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="156" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 7: mod_by -->
+        <mxCell id="d01_r7n" value="mod_by" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="182" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r7t" value="VARCHAR(15) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="182" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 8: mod_ip_address -->
+        <mxCell id="d01_r8n" value="mod_ip_address" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="208" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r8t" value="VARCHAR(15) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="208" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 9: form_transaction_id -->
+        <mxCell id="d01_r9n" value="form_transaction_id" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="234" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r9t" value="VARCHAR(50) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="234" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 10: flag_detail -->
+        <mxCell id="d01_r10n" value="flag_detail" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="260" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r10t" value="VARCHAR(2) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="260" width="98" height="26" as="geometry" /></mxCell>
+
+        <!-- row 11: cif -->
+        <mxCell id="d01_r11n" value="cif" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01staging"><mxGeometry y="286" width="250" height="26" as="geometry" /></mxCell>
+        <mxCell id="d01_r11t" value="VARCHAR(40) NN" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01staging"><mxGeometry x="294" y="286" width="98" height="26" as="geometry" /></mxCell>
+
         <mxCell id="d01_note" value="+ 41 kolom lain, semua NULL-able (nik, nama, alamat, *_ojk_code, pasangan,&#10;penghasilan, period, dll — lihat Data Dictionary)" style="text;html=1;align=left;verticalAlign=top;fontSize=10;fontStyle=2;fontColor=#888888;spacingLeft=12;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="40" y="344" width="420" height="34" as="geometry" />
         </mxCell>
@@ -48,15 +61,20 @@
         <mxCell id="d01hist" value="d01_staging_hist" style="swimlane;html=1;fontStyle=1;fontColor=#ffffff;fillColor=#1f2430;swimlaneFillColor=#ffffff;fontSize=12.5;align=center;startSize=26;" vertex="1" parent="1">
           <mxGeometry x="560" y="30" width="300" height="131" as="geometry" />
         </mxCell>
-        <mxCell id="hist_r1" value="PK   staging_hist_id          BIGINT IDENTITY(1,1)" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;spacingLeft=8;" vertex="1" parent="d01hist">
-          <mxGeometry y="26" width="300" height="26" as="geometry" />
-        </mxCell>
+
+        <!-- hist row 1: PK staging_hist_id -->
+        <mxCell id="hist_r1pk" value="PK" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontStyle=1;spacingLeft=8;" vertex="1" parent="d01hist"><mxGeometry y="26" width="36" height="26" as="geometry" /></mxCell>
+        <mxCell id="hist_r1n" value="staging_hist_id" style="text;html=1;align=left;verticalAlign=middle;fontSize=10.5;fontStyle=1;spacingLeft=6;" vertex="1" parent="d01hist"><mxGeometry x="44" y="26" width="140" height="26" as="geometry" /></mxCell>
+        <mxCell id="hist_r1t" value="BIGINT IDENTITY(1,1)" style="text;html=1;align=right;verticalAlign=middle;fontSize=10;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01hist"><mxGeometry x="184" y="26" width="108" height="26" as="geometry" /></mxCell>
+
+        <!-- hist row 2: mirror note -->
         <mxCell id="hist_r2" value="↳ seluruh kolom sama seperti d01_staging (id, cif, nik, ... dst)&#10;   (kolom &quot;id&quot; tetap VARCHAR(50), bukan identity — dari IFIN)" style="text;html=1;align=left;verticalAlign=middle;fontSize=10.5;fontStyle=2;fontColor=#666666;spacingLeft=44;whiteSpace=wrap;" vertex="1" parent="d01hist">
           <mxGeometry y="52" width="300" height="53" as="geometry" />
         </mxCell>
-        <mxCell id="hist_r3" value="load_dt                                                    DATETIME" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01hist">
-          <mxGeometry y="105" width="300" height="26" as="geometry" />
-        </mxCell>
+
+        <!-- hist row 3: load_dt -->
+        <mxCell id="hist_r3n" value="load_dt" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;spacingLeft=44;" vertex="1" parent="d01hist"><mxGeometry y="105" width="140" height="26" as="geometry" /></mxCell>
+        <mxCell id="hist_r3t" value="DATETIME" style="text;html=1;align=right;verticalAlign=middle;fontSize=10.5;fontColor=#666666;spacingRight=8;" vertex="1" parent="d01hist"><mxGeometry x="184" y="105" width="108" height="26" as="geometry" /></mxCell>
 
         <mxCell id="nofk" value="nggak ada FK&#10;(staging di-truncate)" style="text;html=1;align=center;verticalAlign=middle;fontSize=9.5;fontStyle=2;fontColor=#999999;" vertex="1" parent="1">
           <mxGeometry x="440" y="85" width="118" height="30" as="geometry" />
