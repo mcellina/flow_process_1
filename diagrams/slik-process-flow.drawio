@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="SSIS Process Flow" id="processflow1">
-    <mxGraphModel dx="1683" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1683" dy="697" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1150" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,7 +14,7 @@
           <mxGeometry height="20" width="140" x="530" y="172" as="geometry" />
         </mxCell>
         <mxCell id="containerD01" parent="1" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" value="Sequence Container — D01 (Personal)" vertex="1">
-          <mxGeometry height="430" width="440" x="90" y="215" as="geometry" />
+          <mxGeometry height="480" width="440" x="90" y="215" as="geometry" />
         </mxCell>
         <mxCell id="d01-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(128, 128, 128), rgb(255, 255, 255));&quot;&gt;[ Data Flow Task ]&lt;/span&gt;&lt;/div&gt;2a. Extract &amp;amp; Filter&lt;br&gt;Source (ifin)&lt;br&gt;→ Lookup confins by cif&amp;nbsp;&lt;div&gt;Destination (mis : staging_d01)&lt;/div&gt;" vertex="1">
           <mxGeometry height="88" width="390" x="115" y="255" as="geometry" />
@@ -22,11 +22,14 @@
         <mxCell id="d01-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(102, 102, 102);&quot;&gt;[ Execute SQL Task ]&lt;/span&gt;&lt;br&gt;3a. Data Validation&lt;br&gt;Use Function" vertex="1">
           <mxGeometry height="78" width="390" x="115" y="367" as="geometry" />
         </mxCell>
-        <mxCell id="d01-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(102, 102, 102);&quot;&gt;[ Data Flow Task ]&lt;/span&gt;&lt;br&gt;4a. Load &amp;amp; Push (Multicast)&lt;br&gt;Insert Target (d01_staging)&lt;br&gt;Insert d01_Staging_hist" vertex="1">
-          <mxGeometry height="110" width="390" x="115" y="469" as="geometry" />
+        <mxCell id="d01-trunc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;strokeColor=#D97706;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Execute SQL Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;4a. Truncate Target&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;TRUNCATE TABLE ifin.d01_staging&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="390" x="115" y="469" as="geometry" />
+        </mxCell>
+        <mxCell id="d01-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(102, 102, 102);&quot;&gt;[ Data Flow Task ]&lt;/span&gt;&lt;br&gt;5a. Load &amp;amp; Push (Multicast)&lt;br&gt;Insert Target (d01_staging)&lt;br&gt;Insert d01_Staging_hist" vertex="1">
+          <mxGeometry height="110" width="390" x="115" y="553" as="geometry" />
         </mxCell>
         <mxCell id="containerD02" parent="1" style="rounded=1;dashed=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=8;fontStyle=1;fontSize=12;" value="Sequence Container — D02 (Company)" vertex="1">
-          <mxGeometry height="430" width="440" x="670" y="215" as="geometry" />
+          <mxGeometry height="480" width="440" x="670" y="215" as="geometry" />
         </mxCell>
         <mxCell id="d02-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(128, 128, 128);&quot;&gt;[ Data Flow Task ]&lt;br&gt;&lt;/span&gt;2b. Extract &amp;amp; Filter&lt;br&gt;Source (ifin)&lt;br&gt;→ Lookup confins by cif&amp;nbsp;&lt;div&gt;Destination (mis : staging_d02)&lt;/div&gt;" vertex="1">
           <mxGeometry height="88" width="390" x="695" y="255" as="geometry" />
@@ -34,17 +37,20 @@
         <mxCell id="d02-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(102, 102, 102);&quot;&gt;[ Execute SQL Task ]&lt;/span&gt;&lt;br&gt;3b. Data Validation&lt;br&gt;Use Function" vertex="1">
           <mxGeometry height="78" width="390" x="695" y="367" as="geometry" />
         </mxCell>
-        <mxCell id="d02-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(102, 102, 102);&quot;&gt;[ Data Flow Task ]&lt;/span&gt;&lt;br&gt;4b. Load &amp;amp; Push (Multicast)&lt;br&gt;Insert Target (d02_staging)&lt;div&gt;Insert d02_Staging_hist&lt;/div&gt;" vertex="1">
-          <mxGeometry height="110" width="390" x="695" y="469" as="geometry" />
+        <mxCell id="d02-trunc" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;strokeColor=#D97706;" value="&lt;font style='font-size:9px;color:#999999'&gt;&lt;i&gt;[ Execute SQL Task ]&lt;/i&gt;&lt;/font&gt;&lt;br&gt;&lt;b&gt;4b. Truncate Target&lt;/b&gt;&lt;br&gt;&lt;font style='font-size:10px;color:#666666'&gt;TRUNCATE TABLE ifin.d02_staging&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="390" x="695" y="469" as="geometry" />
+        </mxCell>
+        <mxCell id="d02-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;spacing=4;" value="&lt;span style=&quot;color: rgb(102, 102, 102);&quot;&gt;[ Data Flow Task ]&lt;/span&gt;&lt;br&gt;5b. Load &amp;amp; Push (Multicast)&lt;br&gt;Insert Target (d02_staging)&lt;div&gt;Insert d02_Staging_hist&lt;/div&gt;" vertex="1">
+          <mxGeometry height="110" width="390" x="695" y="553" as="geometry" />
         </mxCell>
         <mxCell id="convergelbl" parent="1" style="text;html=1;align=center;fontSize=11;fontColor=#666666;" value="tunggu dua-duanya selesai" vertex="1">
-          <mxGeometry height="20" width="140" x="530" y="670" as="geometry" />
+          <mxGeometry height="20" width="140" x="530" y="710" as="geometry" />
         </mxCell>
-        <mxCell id="s5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=4;" value="&lt;span style=&quot;color: rgb(128, 128, 128);&quot;&gt;[ Execute SQL Task ]&lt;/span&gt;&lt;br&gt;5. Update Run Log&lt;br&gt;flag = 0" vertex="1">
-          <mxGeometry height="70" width="340" x="430" y="720" as="geometry" />
+        <mxCell id="s5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;verticalAlign=middle;fontStyle=1;spacing=4;" value="&lt;span style=&quot;color: rgb(128, 128, 128);&quot;&gt;[ Execute SQL Task ]&lt;/span&gt;&lt;br&gt;6. Update Run Log&lt;br&gt;flag = 0" vertex="1">
+          <mxGeometry height="70" width="340" x="430" y="760" as="geometry" />
         </mxCell>
         <mxCell id="end" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontStyle=1;" value="END — Success" vertex="1">
-          <mxGeometry height="50" width="240" x="480" y="820" as="geometry" />
+          <mxGeometry height="50" width="240" x="480" y="860" as="geometry" />
         </mxCell>
         <mxCell id="e-start-s1" edge="1" parent="1" source="start" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="s1">
           <mxGeometry relative="1" as="geometry" />
@@ -58,13 +64,19 @@
         <mxCell id="e-d01-2-3" edge="1" parent="1" source="d01-2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d01-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-d01-3-4" edge="1" parent="1" source="d01-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d01-4">
+        <mxCell id="e-d01-3-trunc" edge="1" parent="1" source="d01-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d01-trunc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d01-trunc-4" edge="1" parent="1" source="d01-trunc" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d01-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-d02-2-3" edge="1" parent="1" source="d02-2" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d02-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e-d02-3-4" edge="1" parent="1" source="d02-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d02-4">
+        <mxCell id="e-d02-3-trunc" edge="1" parent="1" source="d02-3" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d02-trunc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-d02-trunc-4" edge="1" parent="1" source="d02-trunc" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;" target="d02-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e-d01-s5" edge="1" parent="1" source="d01-4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;exitX=0.5;exitY=1;entryX=0.25;entryY=0;" target="s5">
@@ -78,8 +90,8 @@
         </mxCell>
         <mxCell id="e-err-task" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;rounded=0;dashed=1;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="600.0769230769233" y="1010" as="sourcePoint" />
-            <mxPoint x="600.0769230769233" y="995" as="targetPoint" />
+            <mxPoint x="600.0769230769233" y="1050" as="sourcePoint" />
+            <mxPoint x="600.0769230769233" y="1035" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
